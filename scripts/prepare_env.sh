@@ -2,7 +2,7 @@
 
 set -e
 
-anaconda_dir=<Your Anaconda Dir> # '/vol/research/yc/miniconda3'
+anaconda_dir='/Users/Xuan/opt/anaconda3' # '/vol/research/yc/miniconda3'
 
 . $anaconda_dir'/etc/profile.d/conda.sh'
 conda remove -n ein --all -y
