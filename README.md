@@ -43,7 +43,7 @@ We provide two ways to setup the environment. Both are based on [Anaconda](https
 1. Use the provided `prepare_env.sh`. Note that you need to set the `anaconda_dir` in `prepare_env.sh` to your anaconda directory, then directly run
 
     ```bash
-    sh scripts/prepare_env.sh
+    bash scripts/prepare_env.sh
     ```
 
 2. Use the provided `environment.yml`. Note that you also need to set the `prefix` to your aimed env directory, then directly run
@@ -63,7 +63,7 @@ conda activate ein
 Download dataset is easy. Directly run
 
 ```bash
-sh scripts/download_dataset.sh
+bash scripts/download_dataset.sh
 ```
 
 ## Preprocessing
@@ -71,7 +71,7 @@ sh scripts/download_dataset.sh
 It is needed to preprocess the data and meta files. `.wav` files will be saved to `.h5` files. Meta files will also be converted to `.h5` files. After downloading the data, directly run
 
 ```bash
-sh scripts/preproc.sh
+bash scripts/preproc.sh
 ```
 
 Preprocessing for meta files (labels) separate labels to different tracks, each with up to one event and a corresponding DoA. The same event is consistently put in the same track. For frame-level permutation-invariant training, this may not be necessary, but for chunk-level PIT or no PIT, consistently arrange the same event in the same track is reasonable.
@@ -87,7 +87,7 @@ wget 'https://zenodo.org/record/4158864/files/out_train.zip' && unzip out_train.
 Then directly run
 
 ```bash
-sh scripts/predict.sh && sh scripts/evaluate.sh
+bash scripts/predict.sh && sh scripts/evaluate.sh
 ```
 
 ## Usage
@@ -99,7 +99,7 @@ Hyper-parameters are stored in `./configs/ein_seld/seld.yaml`. You can change so
 To train a model yourself, setup `./configs/ein_seld/seld.yaml` and directly run
 
 ```bash
-sh scripts/train.sh
+bash scripts/train.sh
 ```
 
 `train_fold` and `valid_fold` in `./configs/ein_seld/seld.yaml` means using what folds to train and validate. Note that `valid_fold` can be `None` which means no validation is needed, and this is usually used for training using fold 1-6.
@@ -117,7 +117,7 @@ You can consider to add `--read_into_mem` argument in `train.sh` to pre-load all
 Prediction predicts resutls and save to `./out_infer` folder. The saved results is the submission result for DCASE challenge. Directly run
 
 ```bash
-sh scripts/predict.sh
+bash scripts/predict.sh
 ```
 
 Prediction predicts results on `testset_type` set, which can be `dev` or `eval`. If it is `dev`, `test_fold` cannot be `None`.
@@ -128,7 +128,7 @@ Prediction predicts results on `testset_type` set, which can be `dev` or `eval`.
 Evaluation evaluate the generated submission result. Directly run
 
 ```bash
-sh scripts/evaluate.sh
+bash scripts/evaluate.sh
 ```
 
 ## Results
@@ -149,7 +149,7 @@ It is notable that EINV2-DA is a single model with plain VGGish architecture usi
 
 If you use the code, please consider citing the papers below
 
-[[1]. Yin Cao, Turab Iqbal, Qiuqiang Kong, Fengyan An, Wenwu Wang, Mark D. Plumbley, "*An Improved Event-Independent Network for Polyphonic Sound Event Localization and Detection*", submitted for publication](https://bit.ly/31XAimu)
+[[1]. Yin Cao, Turab Iqbal, Qiuqiang Kong, Fengyan An, Wenwu Wang, Mark D. Plumbley, "*An Improved Event-Independent Network for Polyphonic Sound Event Localization and Detection*", submitted for publication](http://bit.ly/2N8cF6w)
 ```
 @article{cao2020anevent,
   title={An Improved Event-Independent Network for Polyphonic Sound Event Localization and Detection},
@@ -171,11 +171,11 @@ If you use the code, please consider citing the papers below
 
 ## Reference
 
-1. Archontis Politis, Sharath Adavanne, and Tuomas Virtanen. A dataset of reverberant spatial sound scenes with moving sources for sound event localization and detection. In Proceedings of the Workshop on Detection and Classification of Acoustic Scenes and Events (DCASE2020). November 2020. URL: https://arxiv.org/abs/2006.01919.
+1. Archontis Politis, Sharath Adavanne, and Tuomas Virtanen. A dataset of reverberant spatial sound scenes with moving sources for sound event localization and detection. In Proceedings of the Workshop on Detection and Classification of Acoustic Scenes and Events (DCASE2020). November 2020. [URL](https://arxiv.org/abs/2006.01919)
 
-2. Annamaria Mesaros, Sharath Adavanne, Archontis Politis, Toni Heittola, and Tuomas Virtanen. Joint measurement of localization and detection of sound events. In IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA). New Paltz, NY, Oct 2019. Accepted.
+2. Annamaria Mesaros, Sharath Adavanne, Archontis Politis, Toni Heittola, and Tuomas Virtanen. Joint measurement of localization and detection of sound events. In IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA). New Paltz, NY, Oct 2019. [URL](https://ieeexplore.ieee.org/abstract/document/8937220?casa_token=Z4aGA4E2Dz4AAAAA:BELmzMjaZslLDf1EN1NVZ92_9J0PRnRymY360j--954Un9jb_WXbvLSDhp--7yOeXp0HXYoKuUek)
 
-3. Sharath Adavanne, Archontis Politis, Joonas Nikunen, and Tuomas Virtanen. Sound event localization and detection of overlapping sources using convolutional recurrent neural networks. IEEE Journal of Selected Topics in Signal Processing, 13(1):34–48, March 2018. URL: https://ieeexplore.ieee.org/abstract/document/8567942, doi:10.1109/JSTSP.2018.2885636.
+3. Sharath Adavanne, Archontis Politis, Joonas Nikunen, and Tuomas Virtanen. Sound event localization and detection of overlapping sources using convolutional recurrent neural networks. IEEE Journal of Selected Topics in Signal Processing, 13(1):34–48, March 2018. [URL](https://ieeexplore.ieee.org/abstract/document/8567942)
 
 4. https://github.com/yinkalario/DCASE2019-TASK3
 
